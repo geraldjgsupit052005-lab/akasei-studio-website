@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akasei Creative Studio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+
+body{
+min-height:100vh;
+background:linear-gradient(180deg,#0f4cff 0%,#4f8dff 40%,#ffffff 100%);
+color:#111;
+transition:0.3s;
+}
+
+/* DARK MODE */
+body.dark{background:#0f172a;color:#e5e7eb}
+body.dark .navbar{background:#111827;color:white}
+body.dark .login-container{background:rgba(255,255,255,0.08);color:white}
+body.dark .module-card{background:#1f2937;color:white}
+body.dark .search-bar{background:#1f2937}
+body.dark .nav-links a{
+color:white;
+}
+
+body.dark .nav-links a:hover{
+color:#60a5fa;
+}
+
+body.dark .join-btn{
+border:1px solid #60a5fa;
+color:#60a5fa;
+}
+
+body.dark .divider {
+    color: white;
+}
+
+/* NAVBAR */
+.navbar{
+position:sticky;
+top:0;
+background:white;
+height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 50px;
+box-shadow:0 2px 12px rgba(0,0,0,0.08);
+z-index:10;
+}
+
+.brand-logo{
+height:60px;
+}
+
+.nav-links{
+display:flex;
+gap:28px;
+align-items:center;
+font-size:14px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.2s;
+}
+
+.nav-links a:hover{color:#0f4cff}
+
+.join-btn{
+padding:8px 16px;
+border:1px solid #0f4cff;
+border-radius:8px;
+color:#0f4cff;
+font-weight:600;
+}
+
+.dark-toggle{
+font-size:18px;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+display:grid;
+grid-template-columns:1fr 420px;
+gap:60px;
+align-items:center;
+padding:90px 10%;
+}
+
+.hero-text h1{
+font-size:46px;
+line-height:1.1;
+color:white;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:17px;
+color:rgba(255,255,255,.9);
+margin-bottom:30px;
+max-width:520px;
+}
+
+.search-bar{
+display:flex;
+background:white;
+border-radius:10px;
+padding:6px;
+width:420px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.search-bar input{
+flex:1;
+border:none;
+padding:12px;
+font-size:14px;
+outline:none;
+background:transparent;
+}
+
+.search-btn{
+background:#0f4cff;
+color:white;
+border:none;
+padding:0 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* GLASS LOGIN CARD */
+.login-container{
+backdrop-filter:blur(18px);
+background:rgba(255,255,255,0.25);
+border:1px solid rgba(255,255,255,0.4);
+padding:40px;
+border-radius:18px;
+box-shadow:0 25px 60px rgba(0,0,0,.18);
+animation:floatCard 1s ease;
+}
+
+@keyframes floatCard{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.brand{font-size:24px;font-weight:700;color:#ffffff;margin-bottom:6px}
+.subtitle{font-size:14px;color:#ffffff;margin-bottom:25px}
+
+.input-group{margin-bottom:18px}
+.input-group label{font-size:13px}
+
+.input-box{position:relative;margin-top:6px}
+
+.input-box input{
+width:100%;
+padding:11px 40px 11px 12px;
+border-radius:8px;
+border:1px solid #ddd;
+font-size:14px;
+}
+
+.input-box input:focus{border-color:#0f4cff;outline:none}
+
+.show-pass{
+position:absolute;
+right:12px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+color:#555;
+}
+
+.login-btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#0f4cff;
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:.25s;
+}
+
+.login-btn:hover{background:#003be0;transform:translateY(-2px)}
+
+.divider{text-align:center;margin:20px 0;font-size:13px;color:#666}
+
+.social-login{display:flex;justify-content:center;gap:14px}
+
+.social-login a{
+width:42px;height:42px;
+display:flex;align-items:center;justify-content:center;
+border-radius:50%;
+background:#f3f6ff;
+color:#0f4cff;
+font-size:18px;
+text-decoration:none;
+transition:.25s
+}
+
+.social-login a:hover{background:#0f4cff;color:white}
+
+.footer-login{text-align:center;margin-top:20px;font-size:13px}
+
+/* PARTNERS */
+.partners{margin-top:80px;padding:0 10%;text-align:center}
+
+.partner-logos{display:flex;justify-content:center;gap:60px;font-size:34px;margin-top:20px}
+
+/* MODULES */
+.modules{
+margin:100px auto;
+max-width:1100px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+padding:0 20px;
+}
+
+.module-card{
+background:white;
+padding:30px;
+border-radius:16px;
+text-align:center;
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.module-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+.module-card i{
+font-size:30px;
+color:#0f4cff;
+margin-bottom:12px;
+}
+
+.module-card p{
+font-size:13px;
+margin-top:8px;
+color:#555;
+}
+
+/* DASHBOARD */
+.dashboard{display:none;padding:60px 10%}
+.dashboard h2{margin-bottom:20px}
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px
+}
+
+.dashboard-card{
+background:white;
+padding:25px;
+border-radius:14px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1)
+}
+
+/* FOOTER */
+.footer{
+margin-top:80px;
+background:#0f4cff;
+color:white;
+padding:25px;
+text-align:center;
+font-size:13px;
+}
+
+@media(max-width:900px){
+.hero{grid-template-columns:1fr}
+.search-bar{width:100%}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+<!-- BRAND LOGO -->
+<img src="Akasei_Logo.png" alt="Logo Akasei" class="brand-logo"> 
+
+<!-- NAVIGATION -->
+<div class="nav-links">
+<a href="#">Explore</a>
+<a href="#">Join Mitra</a>
+<a href="#">Login</a>
+<a class="join-btn" href="#">Sign Up</a>
+<i class="fa-solid fa-moon dark-toggle" onclick="toggleDark()"></i>
+</div>
+
+</div>
+
+<section class="hero" id="landing">
+
+<div class="hero-text">
+<h1>Kualitas Mahal Harga <br /> Terjangkau!</h1>
+<p>lebih dari 1 Juta Project telah di percayakan kepada kami.</p>
+
+<div class="search-bar">
+<input type="text" placeholder="Cari jasa Kamu. . .">
+<button class="search-btn"><i class="fa fa-search"></i></button>
+</div>
+</div>
+
+<div class="login-container">
+
+<div class="brand">Halo, Selamat Datang!</div>
+<div class="subtitle">Login to your account</div>
+
+<form onsubmit="login(event)">
+
+<div class="input-group">
+<label>Email</label>
+<div class="input-box">
+<input type="email" required>
+</div>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<div class="input-box">
+<input id="password" type="password" required>
+<i class="fa-solid fa-eye show-pass" onclick="togglePassword()"></i>
+</div>
+</div>
+
+<button class="login-btn">Login</button>
+
+</form>
+
+<div class="divider">or continue with</div>
+
+<div class="social-login">
+<a><i class="fab fa-google"></i></a>
+<a><i class="fab fa-facebook"></i></a>
+<a><i class="fab fa-youtube"></i></a>
+</div>
+
+<div class="footer-login">
+Don't have an account? <a href="#">Sign up</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="partners">
+<p>Di Percayai Oleh</p>
+
+<div class="partner-logos">
+<i class="fab fa-google"></i>
+<i class="fab fa-facebook"></i>
+<i class="fab fa-youtube"></i>
+</div>
+</section>
+
+<section class="modules">
+
+<div class="module-card">
+<i class="fa-solid fa-video"></i>
+<h4>Video Editing</h4>
+<p>Create professional video content for YouTube, ads, social media, and cinematic projects using modern editing tools.</p>
+</div>
+
+<div class="module-card">
+<i class="fa-solid fa-music"></i>
+<h4>Audio Production</h4>
+<p>Professional audio editing, mixing, mastering, podcast production, and sound design for music and media.</p>
+</div>
+
+<div class="module-card">
+<i class="fa-solid fa-palette"></i>
+<h4>Graphic Design</h4>
+<p>Design modern visuals including branding, UI/UX, thumbnails, marketing assets, and social media graphics.</p>
+</div>
+
+<div class="module-card">
+<i class="fa-solid fa-globe"></i>
+<h4>Web Development</h4>
+<p>Build fast and responsive websites, landing pages, and SaaS platforms using modern web technologies.</p>
+</div>
+
+</section>
+
+<section class="dashboard" id="dashboard">
+<h2>Dashboard</h2>
+
+<div class="dashboard-grid">
+
+<div class="dashboard-card">
+<h3>Projects</h3>
+<p>Manage your active projects.</p>
+</div>
+
+<div class="dashboard-card">
+<h3>Analytics</h3>
+<p>Track performance and revenue.</p>
+</div>
+
+<div class="dashboard-card">
+<h3>Messages</h3>
+<p>Communicate with clients.</p>
+</div>
+
+<div class="dashboard-card">
+<h3>Settings</h3>
+<p>Update your profile and preferences.</p>
+</div>
+
+</div>
+</section>
+
+<div class="footer">
+© 2026 AkaseiStudio Inc. All rights reserved • Licensed By Kementrian Hukum
+</div>
+
+<script>
+
+function togglePassword(){
+var pass=document.getElementById("password");
+pass.type = pass.type === "password" ? "text" : "password";
+}
+
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
+function login(e){
+e.preventDefault();
+
+document.getElementById("landing").style.display="none";
+document.querySelector(".partners").style.display="none";   
+document.querySelector(".modules").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
